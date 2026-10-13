@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chrome Dino Runner - Retro Arcade Experience</title>
+  <meta name="description" content="A modern, polished retro Dinosaur Runner game with smooth animations, high scores, sounds, and day/night cycle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-decorations">
+    <div class="sun-moon" id="sunMoon"></div>
+    <div class="stars" id="starsLayer"></div>
+  </div>
+
+  <main class="game-container" id="gameContainer">
+    <!-- Header / Stats Bar -->
+    <header class="game-header">
+      <div class="branding">
+        <span class="pixel-badge">ARCADE</span>
+        <h1 class="title">T-REX RUNNER</h1>
+      </div>
+      <div class="score-board">
+        <div class="stat-pill">
+          <span class="stat-label">HI</span>
+          <span class="stat-value" id="highScoreText">00000</span>
+        </div>
+        <div class="stat-pill primary">
+          <span class="stat-label">SCORE</span>
+          <span class="stat-value" id="currentScoreText">00000</span>
+        </div>
+        <div class="stat-pill speed-pill">
+          <span class="stat-label">SPEED</span>
+          <span class="stat-value" id="speedText">1.0x</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Canvas Arena -->
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="900" height="300"></canvas>
+
+      <!-- Overlay for Start / Pause / Game Over -->
+      <div class="overlay" id="gameOverlay">
+        <div class="overlay-card" id="overlayCard">
+          <div class="dino-mascot-icon" id="mascotIcon">🦖</div>
+          <h2 class="overlay-title" id="overlayTitle">PRESS SPACE TO RUN</h2>
+          <p class="overlay-subtitle" id="overlaySubtitle">Jump over cacti and duck under pterodactyls to survive!</p>
+          
+          <div class="overlay-actions">
+            <button class="btn btn-primary" id="startBtn">START GAME</button>
+          </div>
+          
+          <div class="controls-guide">
+            <div class="key-hint">
+              <kbd>Space</kbd> / <kbd>▲</kbd> <span>Jump</span>
+            </div>
+            <div class="key-hint">
+              <kbd>▼</kbd> <span>Duck</span>
+            </div>
+            <div class="key-hint">
+              <kbd>P</kbd> <span>Pause</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Controls & Sound Toggle -->
+    <footer class="game-footer">
+      <div class="sound-controls">
+        <button class="icon-btn" id="audioToggleBtn" title="Toggle Sound (M)" aria-label="Toggle Sound">
+          <span id="audioIcon">🔊</span>
+          <span id="audioLabel">Sound ON</span>
+        </button>
+        <button class="icon-btn" id="themeToggleBtn" title="Toggle Day / Night" aria-label="Toggle Theme">
+          <span id="themeIcon">🌙</span>
+          <span id="themeLabel">Night Mode</span>
+        </button>
+      </div>
+
+      <!-- Touch / Mobile Friendly Buttons -->
+      <div class="mobile-controls">
+        <button class="touch-btn jump-btn" id="touchJumpBtn" aria-label="Jump">
+          <span>▲ JUMP</span>
+        </button>
+        <button class="touch-btn duck-btn" id="touchDuckBtn" aria-label="Duck">
+          <span>▼ DUCK</span>
+        </button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
